@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.bill.demoproject.dao.ProjectEntityMapper">
+<mapper namespace="com.lyingedu.questionnaire.dao.ProjectEntityMapper">
     <select id="queryProjectList" parameterType="java.lang.String"
-            resultType="org.bill.demoproject.dao.entity.ProjectEntity">
+            resultType="com.lyingedu.questionnaire.dao.entity.ProjectEntity">
         select id,
                user_id          as "userId",
                project_name     as "projectName",
@@ -14,7 +14,7 @@
         from project_info
         where project_name like concat('%', #{projectName}, '%') or id = #{id}
     </select>
-    <insert id="addProjectInfo" parameterType="org.bill.demoproject.dao.entity.ProjectEntity">
+    <insert id="addProjectInfo" parameterType="com.lyingedu.questionnaire.dao.entity.ProjectEntity">
         insert into project_info (id, user_id, project_name, project_content, created_by, creation_date,
                                   last_updated_by,
                                   last_update_date)
@@ -23,7 +23,7 @@
                 #{lastUpdatedBy,jdbcType=VARCHAR}, #{lastUpdateDate,jdbcType=TIMESTAMP})
 
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="org.bill.demoproject.dao.entity.ProjectEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="com.lyingedu.questionnaire.dao.entity.ProjectEntity">
         update project_info
         <set>
             <if test="userId != null">
@@ -50,7 +50,7 @@
         </set>
         where id = #{id,jdbcType=VARCHAR}
     </update>
-    <delete id="deleteProjectById" parameterType="org.bill.demoproject.dao.entity.ProjectEntity">
+    <delete id="deleteProjectById" parameterType="com.lyingedu.questionnaire.dao.entity.ProjectEntity">
         delete from project_info where id = #{id,jdbcType=VARCHAR}
     </delete>
 

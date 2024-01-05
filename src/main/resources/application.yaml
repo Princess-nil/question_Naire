@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
-  type-aliases-package: org.bill.demoproject.dao.entity
+  type-aliases-package: com.lyingedu.questionnaire.dao.entity
   mapper-locations: classpath:mapper/*.xml
   configuration:
     cache-enabled: true

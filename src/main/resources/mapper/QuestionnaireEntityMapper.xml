@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.bill.demoproject.dao.QuestionnaireEntityMapper">
-    <select id="queryQuestionnaireList" parameterType="org.bill.demoproject.dao.entity.QuestionnaireEntity"
-            resultType="org.bill.demoproject.dao.entity.QuestionnaireEntity">
+<mapper namespace="com.lyingedu.questionnaire.dao.QuestionnaireEntityMapper">
+    <select id="queryQuestionnaireList" parameterType="com.lyingedu.questionnaire.dao.entity.QuestionnaireEntity"
+            resultType="com.lyingedu.questionnaire.dao.entity.QuestionnaireEntity">
         select id,
                project_id as projectId,
                questionnaire_type as questionnaireType,
@@ -19,7 +19,7 @@
         from questionnaire_info
         where (questionnaire_name like concat('%', #{questionnaireName}, '%') or project_id = #{projectId} or id = #{id}) and status = 1
     </select>
-    <insert id="addQuestionnaireInfo" parameterType="org.bill.demoproject.dao.entity.QuestionnaireEntity">
+    <insert id="addQuestionnaireInfo" parameterType="com.lyingedu.questionnaire.dao.entity.QuestionnaireEntity">
         insert into questionnaire_info (id, project_id, questionnaire_type, questionnaire_name, questionnaire_description,
                                         status, created_by, creation_date, last_updated_by, last_updated_date, start_time, end_time, release_time)
         VALUES (#{id,jdbcType=VARCHAR}, #{projectId,jdbcType=VARCHAR}, #{questionnaireType,jdbcType=VARCHAR},
@@ -28,7 +28,7 @@
                 #{lastUpdatedDate,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{releaseTime,jdbcType=TIMESTAMP})
 
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="org.bill.demoproject.dao.entity.QuestionnaireEntity">
+    <update id="updateByPrimaryKeySelective" parameterType="com.lyingedu.questionnaire.dao.entity.QuestionnaireEntity">
         update questionnaire_info
         <set>
             <if test="projectId != null">
@@ -70,7 +70,7 @@
         </set>
         where id = #{id,jdbcType=VARCHAR}
     </update>
-    <delete id="deleteQuestionnaireById" parameterType="org.bill.demoproject.dao.entity.QuestionnaireEntity">
+    <delete id="deleteQuestionnaireById" parameterType="com.lyingedu.questionnaire.dao.entity.QuestionnaireEntity">
         delete from questionnaire_info where id = #{id,jdbcType=VARCHAR}
     </delete>
 

@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration><!-- 配置 -->
     <typeAliases>
-        <package name="org.bill.demoproject"/>
+        <package name="com.lyingedu.questionnaire"/>
     </typeAliases>
     <typeHandlers>
-        <typeHandler handler="org.bill.demoproject.common.typehandler.OptionEntityListTypeHandler"/>
+        <typeHandler handler="com.lyingedu.questionnaire.common.typehandler.OptionEntityListTypeHandler"/>
     </typeHandlers>
     <environments default="development">
         <environment id="development">
@@ -14,9 +14,9 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url"
-                          value="jdbc:mysql://db4free.net:3306/blspringdb?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"/>
-                <property name="username" value="bl_spring_admin"/>
-                <property name="password" value="db4freeLHN2002"/>
+                          value="jdbc:mysql://localhost:3306/myweb?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
             </dataSource>
         </environment>
     </environments>
